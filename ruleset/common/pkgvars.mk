@@ -32,13 +32,14 @@
 ###############################################################################
 
 # The maintainer information.
-maintainer := $(shell LC_ALL=C dpkg-parsechangelog | grep ^Maintainer: | \
-                sed 's/^Maintainer: *//')
-email := srivasta@debian.org
+maintainer := 'John Morris'
+email := 'john@zultron.com'
+
+# Don't know where else to put this, so it's here.
+INITRD := YES
 
 # Priority of this version (or urgency, as dchanges would call it)
-urgency := $(shell LC_ALL=C dpkg-parsechangelog | grep ^Urgency: | \
-             sed 's/^Urgency: *//')
+urgency := low
 
 # Common useful variables
 DEB_SOURCE_PACKAGE := $(strip $(shell egrep '^Source: ' debian/control      |       \

@@ -35,8 +35,29 @@
 maintainer := 'John Morris'
 email := 'john@zultron.com'
 
-# Don't know where else to put this, so it's here.
+# Don't know where else to put these, so they're here.
+#
+# 'make-kpkg --initrd' sets INITRD=YES on the make command line.
+# we always want initrd kernels.
 INITRD := YES
+#
+# Codename for  distro
+CODE := precise
+#
+#
+# kernel-tools location
+KTOOLS := $(DEBDIR)/Config-Xeno
+#
+# Define an alternate directory for Xenomai's custom kernel configs
+CONFDIR = $(KTOOLS)/configs/$(CODE)-$(version)
+#
+# kconfigtool.py location
+KCONFIGTOOL := python $(KTOOLS)/kconfigtool.py
+
+# a way to translate the KPKG_SUBARCH to i386 or x86_64 for the configs
+ARCH_TRANS = $(if $(findstring $(KPKG_SUBARCH),amd64 x86_64),x86_64,i386)
+# the flavor config file
+FLAVOR_CONFIG_FILE = $(KTOOLS)/configs/config-$(version)-xenomai-$(ARCH_TRANS)
 
 # Priority of this version (or urgency, as dchanges would call it)
 urgency := low

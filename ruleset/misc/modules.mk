@@ -43,17 +43,7 @@ endif
 $(eval $(which_debdir))
 CONFIG_FILE := $(shell if test -e .config ; then \
                            echo .config; \
-                       elif test -e $(DEBCONFIG) ; then \
-                           echo $(DEBCONFIG); \
-                       elif test -e $(CONFDIR)/config ; then \
-                           echo $(CONFDIR)/config ; \
-                       elif test -e $(DEBDIR)/config ; then \
-                           echo $(DEBDIR)/config ; \
-                       elif test -e /boot/config-$(KERNELRELEASE) ; then \
-                           echo /boot/config-$(KERNELRELEASE) ; \
-                       elif test -e /boot/config-$$(uname -r) ; then \
-                           echo /boot/config-$$(uname -r) ; \
-                       else echo /dev/null ; \
+		       else echo $(DEBCONFIG); \
                        fi)
 
 

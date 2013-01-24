@@ -129,11 +129,10 @@ ifneq ($(strip $(use_saved_config)),NO)
 	test -f .config || test ! -f .config.save || \
 			    cp -pf .config.save .config
 endif
-	test -f .config || test ! -f $(CONFIG_FILE) || \
-			    cp -pf $(CONFIG_FILE) .config
-	$(eval $(which_debdir))
-	test -f .config || test ! -f $(DEBDIR)/config || \
-			    cp -pf $(DEBDIR)/config  .config
+	test -f .config || \
+		test ! -f $(CONFIG_FILE) -a ! -f $(FLAVOR_CONFIG_FILE) || \
+		$(KCONFIGTOOL) -m $(FLAVOR_CONFIG_FILE) $(CONFIG_FILE) \
+			> .config
 ifeq ($(strip $(have_new_config_target)),)
   ifneq ($(strip $(NEED_CONFIG)),)
 	test -f .config || $(MAKE) defconfig

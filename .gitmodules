@@ -1,0 +1,3 @@
+[submodule "Config-Xeno"]
+	path = Config-Xeno
+	url = git@github.com:zultron/kernel-tools.git

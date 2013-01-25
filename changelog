@@ -1,3 +1,11 @@
+linux-source-3.5.7-xenomai-2.6.2.1 (1) precise; urgency=low
+
+  * Rebuild v3.5.7 patch with Xenomai 2.6.2.1 pre-release dev version
+    - Last version was not an initrd kernel
+    - New version adds automatic .config generation and patching
+
+ -- John Morris <john@zultron.com>  Mon, 24 Jan 2013 23:01:42 -0600
+
 linux-source-3.5.7-xenomai-2.6.2.1 (0) precise; urgency=low
 
   * Build v3.5.7 patch with Xenomai 2.6.2.1 pre-release dev version

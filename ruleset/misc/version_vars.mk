@@ -186,6 +186,7 @@ KERNELRELEASE = $(strip $(call doit,if [ -f include/config/kernel.release ]; the
                           echo "$(version)-xenomai-$(XENOMAI_VERSION)";   \
                        fi;))
 
+PACKAGE_VERSION = $(version)-xenomai-$(XENOMAI_VERSION)
 
 # See if we are being run in the kernel directory
 ifeq ($(DEB_HOST_ARCH_OS), linux)

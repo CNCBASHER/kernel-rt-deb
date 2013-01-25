@@ -50,17 +50,17 @@ endif
 endif
 
 # The name of the package (for example, 'emacs').
-s_package  = $(INT_STEM)-source-$(KERNELRELEASE)
-h_package  = $(INT_STEM)-headers-$(KERNELRELEASE)
+s_package  = $(INT_STEM)-source-$(PACKAGE_VERSION)
+h_package  = $(INT_STEM)-headers-$(PACKAGE_VERSION)
 ifeq ($(strip $(KERNEL_ARCH)),um)
-	i_package  = $(INT_STEM)-uml-$(KERNELRELEASE)$(INT_SUBARCH)
-	b_package  = $(INT_STEM)-uml-$(KERNELRELEASE)$(INT_SUBARCH)-dbg
+	i_package  = $(INT_STEM)-uml-$(PACKAGE_VERSION)$(INT_SUBARCH)
+	b_package  = $(INT_STEM)-uml-$(PACKAGE_VERSION)$(INT_SUBARCH)-dbg
 else
-	i_package  = $(INT_STEM)-image-$(KERNELRELEASE)$(INT_SUBARCH)
-	b_package  = $(INT_STEM)-image-$(KERNELRELEASE)$(INT_SUBARCH)-dbg
+	i_package  = $(INT_STEM)-image-$(PACKAGE_VERSION)$(INT_SUBARCH)
+	b_package  = $(INT_STEM)-image-$(PACKAGE_VERSION)$(INT_SUBARCH)-dbg
 endif
-d_package  = $(INT_STEM)-doc-$(KERNELRELEASE)
-m_package  = $(INT_STEM)-manual-$(KERNELRELEASE)
+d_package  = $(INT_STEM)-doc-$(PACKAGE_VERSION)
+m_package  = $(INT_STEM)-manual-$(PACKAGE_VERSION)
 
 SRCTOP     = $(shell if [ "$$PWD" != "" ]; then echo $$PWD; else pwd; fi)
 
@@ -79,7 +79,7 @@ MAN1DIR = $(MANDIR)/man1
 MAN9DIR = $(MANDIR)/man9
 INFODIR = $(TMPTOP)/usr/share/info
 
-UML_DIR        = $(TMPTOP)/usr/lib/uml/modules/$(KERNELRELEASE)
+UML_DIR        = $(TMPTOP)/usr/lib/uml/modules/$(PACKAGE_VERSION)
 
 TMP_MAN        = $(SRCTOP)/debian/tmp_man
 DIRS_TO_CLEAN += $(TMP_MAN)

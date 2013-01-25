@@ -1,0 +1,40 @@
+This kernel package is hacked to support Xenomai.
+
+The starting point was make-kpkg in a 3.5.7 vanilla kernel tree, and
+the linux-patch-xenomai 2.6.2.1 package installed.
+
+The kernel .config file is automatically generated from the
+zultron/kernel-tools github repo [1], which contains the Ubuntu 3.5
+kernel config files and an 'override' configuration for Xenomai.
+
+There are a few ugly hacks in here to make it work.  See the git
+history for more info.
+
+-------------------------------
+Building:
+
+- Install the Xenomai packages, especially 'linux-patch-xenomai'.
+
+- Look at the kernel versions in the ipipe-core patch file names in
+  /usr/src/kernel-patches/diffs/xenomai/.
+
+- Download the vanilla kernel source corresponding to the ipipe-core
+  patch.
+
+- Inside the directory, clone this git repo into the /debian
+  directory:
+
+  git clone git@github.com:zultron/kernel-tools.git debian
+
+- Clone the kernel-tools [1] submodule where the kernel configs and
+  the tool live:
+
+  (cd debian && git submodule update --init Config-Xeno)
+
+- Check debian/changelog.  If the versions don't match the ipipe-core
+  and kernel versions, you'll have to create a new changelog entry and
+  regenerate the control file.
+
+- Build with 'dpkg-buildpackage -uc -us'.
+
+[1] https://github.com/zultron/kernel-tools

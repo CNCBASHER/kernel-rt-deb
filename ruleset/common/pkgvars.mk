@@ -59,6 +59,11 @@ ARCH_TRANS = $(if $(findstring $(KPKG_SUBARCH),amd64 x86_64),x86_64,i386)
 # the flavor config file
 FLAVOR_CONFIG_FILE = $(KTOOLS)/configs/config-$(version)-xenomai-$(ARCH_TRANS)
 
+# the Xenomai kernel patch
+XENOMAI_ARCH = $(shell /usr/bin/xeno-config --arch)
+XENOMAI_PATCH = $(shell echo \
+	/usr/src/kernel-patches/diffs/xenomai/ipipe-core-$(version)-$(XENOMAI_ARCH)-[0-9].patch.gz | tail)
+
 # Priority of this version (or urgency, as dchanges would call it)
 urgency := low
 

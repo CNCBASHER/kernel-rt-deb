@@ -59,6 +59,10 @@ ARCH_TRANS = $(if $(findstring $(KPKG_SUBARCH),amd64 x86_64),x86_64,i386)
 # the flavor config file
 FLAVOR_CONFIG_FILE = $(KTOOLS)/configs/config-$(version)-xenomai-$(ARCH_TRANS)
 
+# The Xenomai version goes into the kernel package name
+XENOMAI_VERSION = $(shell /usr/bin/dpkg-query -W -f '$${Version}\n' \
+	linux-patch-xenomai | sed 's/-[0-9]//')
+
 # the Xenomai kernel patch
 XENOMAI_ARCH = $(shell /usr/bin/xeno-config --arch)
 XENOMAI_PATCH = $(shell echo \

@@ -183,7 +183,7 @@ KERNELRELEASE = $(strip $(call doit,if [ -f include/config/kernel.release ]; the
                         elif [ -f .kernelrelease ]; then                  \
                            cat .kernelrelease 2> /dev/null ;              \
                         else                                              \
-                          echo "$(version)";                              \
+                          echo "$(version)-xenomai-$(XENOMAI_VERSION)";   \
                        fi;))
 
 

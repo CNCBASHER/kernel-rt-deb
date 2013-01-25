@@ -40,6 +40,7 @@ debian/stamp/pre-config-common: debian/stamp/xeno_patch
 debian/stamp/pre-config-indep:  debian/stamp/conf/kernel-conf
 configure: debian/stamp/conf/common
 debian/stamp/pre-build-common:  sanity_check debian/stamp/conf/vars
+debian/stamp/conf/vars:  .config
 debian/stamp/BUILD/$(i_package): debian/stamp/build/kernel
 
 debian/stamp/INST/$(s_package): debian/stamp/install/$(s_package)

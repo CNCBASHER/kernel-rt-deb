@@ -1,2 +1,9 @@
 # ignore timestamps
 /stamp/*
+
+# ignore build directories
+/linux-headers-*/
+/linux-source-*/
+/linux-image-*/
+/linux-doc-*/
+/linux-manual-*/

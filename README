@@ -10,6 +10,8 @@ kernel config files and an 'override' configuration for Xenomai.
 There are a few ugly hacks in here to make it work.  See the git
 history for more info.
 
+[1] https://github.com/zultron/kernel-tools
+
 -------------------------------
 Building:
 
@@ -37,4 +39,16 @@ Building:
 
 - Build with 'dpkg-buildpackage -uc -us'.
 
-[1] https://github.com/zultron/kernel-tools
+
+-------------------------------
+TODO:
+
+- Fix package dependencies:  building depends on linux-patch-xenomai;
+  kernel depends on xenomai-runtime.
+
+- Allow control to be automatically generated, as it was from
+  make-kpkg
+
+- Probably, blow all this away and stop using make-kpkg.  However, the
+  Ubuntu kernel git tree isn't ideal either, since it tracks the
+  entire kernel.  This approach was hoped to be more light-weight.

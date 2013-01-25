@@ -55,7 +55,7 @@ CONFDIR = $(KTOOLS)/configs/$(CODE)-$(version)
 KCONFIGTOOL := python $(KTOOLS)/kconfigtool.py
 
 # a way to translate the KPKG_SUBARCH to i386 or x86_64 for the configs
-ARCH_TRANS = $(if $(findstring $(KPKG_SUBARCH),amd64 x86_64),x86_64,i386)
+ARCH_TRANS = $(if $(findstring $(DEB_BUILD_ARCH),amd64),x86_64,i386)
 # the flavor config file
 FLAVOR_CONFIG_FILE = $(KTOOLS)/configs/config-$(version)-xenomai-$(ARCH_TRANS)
 

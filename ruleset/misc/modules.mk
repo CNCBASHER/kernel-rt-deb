@@ -43,7 +43,9 @@ endif
 $(eval $(which_debdir))
 CONFIG_FILE := $(shell if test -e .config ; then \
                            echo .config; \
-		       else echo $(DEBCONFIG); \
+		       elif test -e $(DEBCONFIG) ; then \
+		       	   echo $(DEBCONFIG); \
+		       else echo $(CONFDIR)/config.$(DEB_BUILD_ARCH); \
                        fi)
 
 

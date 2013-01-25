@@ -143,6 +143,17 @@ endif
 # file at this point
 
 
+debian/stamp/xeno_patch:
+	gzip -cd $(XENOMAI_PATCH) | patch -p1 && \
+	touch $@ && rm -f debian/stamp/xeno_unpatch
+
+debian/stamp/xeno_unpatch:
+	if test -f debian/stamp/xeno_patch; then \
+	    gzip -cd $(XENOMAI_PATCH) | patch -p1 -R && \
+	    rm -f debian/stamp/xeno_patch; \
+	fi
+	touch $@
+
 debian/stamp/conf/vars:
 	$(REASON)
 	$(checkdir)
@@ -381,7 +392,6 @@ else
   endif
 endif
 	$(eval $(deb_rule))
-	test -f stamp-building || rm -rf debian
 	rm -f $(FILES_TO_CLEAN) $(STAMPS_TO_CLEAN)
 	rm -rf $(DIRS_TO_CLEAN)
 

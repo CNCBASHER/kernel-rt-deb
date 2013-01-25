@@ -495,7 +495,7 @@ clean: clean-indep clean-arch
 	$(REASON)
 	-test -f Makefile && $(MAKE) clean
 	-rm -f	$(FILES_TO_CLEAN) $(STAMPS_TO_CLEAN)
-	-rm -rf $(DIRS_TO_CLEAN) debian/stamp
+	-rm -rf $(DIRS_TO_CLEAN)
 	-rm -f core TAGS						     \
 	       `find . ! -regex '.*/\.git/.*' ! -regex '.*/\{arch\}/.*'	     \
 		       ! -regex '.*/CVS/.*'   ! -regex '.*/\.arch-ids/.*'    \

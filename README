@@ -20,13 +20,13 @@ Building:
 - Look at the kernel versions in the ipipe-core patch file names in
   /usr/src/kernel-patches/diffs/xenomai/.
 
-- Download the vanilla kernel source corresponding to the ipipe-core
-  patch.
+- Download, unpack, and cd into the vanilla kernel source
+  corresponding to the ipipe-core patch.
 
-- Inside the directory, clone this git repo into the /debian
+- Inside the kernel directory, clone this git repo into the /debian
   directory:
 
-  git clone git@github.com:zultron/kernel-tools.git debian
+  git clone git@github.com:zultron/kernel-rt-deb.git debian
 
 - Clone the kernel-tools [1] submodule where the kernel configs and
   the tool live:

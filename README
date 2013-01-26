@@ -52,3 +52,5 @@ TODO:
 - Probably, blow all this away and stop using make-kpkg.  However, the
   Ubuntu kernel git tree isn't ideal either, since it tracks the
   entire kernel.  This approach was hoped to be more light-weight.
+
+- Lots of errors during document generation

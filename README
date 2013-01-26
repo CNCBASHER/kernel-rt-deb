@@ -43,8 +43,8 @@ Building:
 -------------------------------
 TODO:
 
-- Fix package dependencies:  building depends on linux-patch-xenomai;
-  kernel depends on xenomai-runtime.
+- Fix package dependencies:  building depends on linux-patch-xenomai
+  and libxenomai-dev; kernel depends on xenomai-runtime.
 
 - Allow control to be automatically generated, as it was from
   make-kpkg

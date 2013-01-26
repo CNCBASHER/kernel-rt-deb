@@ -7,3 +7,12 @@
 /linux-image-*/
 /linux-doc-*/
 /linux-manual-*/
+
+# templates
+templates.in
+templates.l10n
+templates.master
+
+# other things
+control.dist
+substvars

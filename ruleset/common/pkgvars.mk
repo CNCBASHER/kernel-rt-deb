@@ -49,12 +49,14 @@ INITRD := YES
 # Codename for  distro
 CODE := precise
 #
+# Original kernel version
+ORIGKERNELRELEASE = $(VERSION).$(PATCHLEVEL).$(SUBLEVEL)$(EXTRAVERSION)
 #
 # kernel-tools location
 KTOOLS := $(DEBDIR)/Config-Xeno
 #
 # Define an alternate directory for Xenomai's custom kernel configs
-CONFDIR = $(KTOOLS)/configs/$(CODE)-$(version)
+CONFDIR = $(KTOOLS)/configs/$(CODE)-$(ORIGKERNELRELEASE)
 #
 # kconfigtool.py location
 KCONFIGTOOL := python $(KTOOLS)/kconfigtool.py
@@ -62,12 +64,12 @@ KCONFIGTOOL := python $(KTOOLS)/kconfigtool.py
 # a way to translate the KPKG_SUBARCH to i386 or x86_64 for the configs
 ARCH_TRANS = $(if $(findstring $(DEB_BUILD_ARCH),amd64),x86_64,i386)
 # the flavor config file
-FLAVOR_CONFIG_FILE = $(KTOOLS)/configs/config-$(version)-xenomai-$(ARCH_TRANS)
+FLAVOR_CONFIG_FILE = $(KTOOLS)/configs/config-$(ORIGKERNELRELEASE)-xenomai-$(ARCH_TRANS)
 
 # the Xenomai kernel patch
 XENOMAI_ARCH = $(shell /usr/bin/xeno-config --arch)
 XENOMAI_PATCH = $(shell echo \
-	/usr/src/kernel-patches/diffs/xenomai/ipipe-core-$(version)-$(XENOMAI_ARCH)-[0-9].patch.gz | tail)
+	/usr/src/kernel-patches/diffs/xenomai/ipipe-core-$(ORIGKERNELRELEASE)-$(XENOMAI_ARCH)-[0-9].patch.gz | tail -1)
 
 # Priority of this version (or urgency, as dchanges would call it)
 urgency := low

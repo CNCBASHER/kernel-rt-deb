@@ -35,8 +35,13 @@
 maintainer := 'John Morris'
 email := 'john@zultron.com'
 
-# Don't know where else to put these, so they're here.
-#
+# The Xenomai version goes into the kernel package name
+XENOMAI_VERSION = $(shell /usr/bin/dpkg-query -W -f '$${Version}\n' \
+	linux-patch-xenomai | sed 's/-[0-9]//')
+
+# This is appended EXTRAFLAGS and thus the kernel version
+APPEND_TO_VERSION := -xenomai-$(XENOMAI_VERSION)
+
 # 'make-kpkg --initrd' sets INITRD=YES on the make command line.
 # we always want initrd kernels.
 INITRD := YES
@@ -58,10 +63,6 @@ KCONFIGTOOL := python $(KTOOLS)/kconfigtool.py
 ARCH_TRANS = $(if $(findstring $(DEB_BUILD_ARCH),amd64),x86_64,i386)
 # the flavor config file
 FLAVOR_CONFIG_FILE = $(KTOOLS)/configs/config-$(version)-xenomai-$(ARCH_TRANS)
-
-# The Xenomai version goes into the kernel package name
-XENOMAI_VERSION = $(shell /usr/bin/dpkg-query -W -f '$${Version}\n' \
-	linux-patch-xenomai | sed 's/-[0-9]//')
 
 # the Xenomai kernel patch
 XENOMAI_ARCH = $(shell /usr/bin/xeno-config --arch)

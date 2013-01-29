@@ -50,7 +50,7 @@ INITRD := YES
 CODE := precise
 #
 # Original kernel version
-ORIGKERNELRELEASE = $(VERSION).$(PATCHLEVEL).$(SUBLEVEL)$(EXTRAVERSION)
+ORIGKERNELRELEASE = $(VERSION).$(PATCHLEVEL).$(SUBLEVEL)
 #
 # kernel-tools location
 KTOOLS := $(DEBDIR)/Config-Xeno

@@ -1,4 +1,4 @@
-linux-source-3.5.7-xenomai-2.6.2.1-ubuntu (4) precise; urgency=low
+linux-source-3.5.7.2-xenomai-2.6.2.1-ubuntu (4) precise; urgency=low
 
   * Rebuild with ubuntu diffs applied
     - After xenomai patch, apply diff of v3.5.7 -> Ubuntu-lts-3.5.0-23.35

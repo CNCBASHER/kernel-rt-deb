@@ -40,7 +40,7 @@ XENOMAI_VERSION = $(shell /usr/bin/dpkg-query -W -f '$${Version}\n' \
 	linux-patch-xenomai | sed 's/-[0-9]//')
 
 # This is appended EXTRAFLAGS and thus the kernel version
-APPEND_TO_VERSION := -xenomai-$(XENOMAI_VERSION)
+APPEND_TO_VERSION := -xenomai-$(XENOMAI_VERSION)-ubuntu
 
 # 'make-kpkg --initrd' sets INITRD=YES on the make command line.
 # we always want initrd kernels.

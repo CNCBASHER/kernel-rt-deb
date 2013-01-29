@@ -1,3 +1,10 @@
+linux-source-3.5.7-xenomai-2.6.2.1-ubuntu (4) precise; urgency=low
+
+  * Rebuild with ubuntu diffs applied
+    - After xenomai patch, apply diff of v3.5.7 -> Ubuntu-lts-3.5.0-23.35
+
+ -- John Morris <john@zultron.com>  Fri, 25 Jan 2013 22:44:42 -0600
+
 linux-source-3.5.7-xenomai-2.6.2.1 (3) precise; urgency=low
 
   * Rebuild v3.5.7 patch with Xenomai 2.6.2.1 release

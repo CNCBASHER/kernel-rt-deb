@@ -147,12 +147,28 @@ debian/stamp/.xeno_patch:
 	gzip -cd $(XENOMAI_PATCH) | patch -p1 && \
 	touch $@ && rm -f debian/stamp/.xeno_unpatch
 
-debian/stamp/.xeno_unpatch:
+debian/stamp/.xeno_unpatch:  debian/stamp/.ubuntu_unpatch
 	if test -f debian/stamp/.xeno_patch; then \
 	    gzip -cd $(XENOMAI_PATCH) | patch -p1 -R && \
 	    rm -f debian/stamp/.xeno_patch; \
 	fi
 	touch $@
+
+debian/stamp/.ubuntu_patch:  debian/stamp/.xeno_patch
+	cat patch/$(UBUNTU_PATCH) | patch -p1 && \
+	touch $@ && rm -f debian/stamp/.ubuntu_unpatch
+
+debian/stamp/.ubuntu_unpatch:
+	if test -f debian/stamp/.ubuntu_patch; then \
+	    cat patch/$(UBUNTU_PATCH) | patch -p1 -R && \
+	    rm -f debian/stamp/.ubuntu_patch; \
+	fi
+	touch $@
+
+debian/stamp/.patch: debian/stamp/.xeno_patch debian/stamp/.ubuntu_patch
+
+debian/stamp/.unpatch: debian/stamp/.xeno_unpatch debian/stamp/.ubuntu_unpatch
+
 
 debian/stamp/conf/vars:
 	$(REASON)

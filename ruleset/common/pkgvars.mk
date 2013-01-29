@@ -71,6 +71,13 @@ XENOMAI_ARCH = $(shell /usr/bin/xeno-config --arch)
 XENOMAI_PATCH = $(shell echo \
 	/usr/src/kernel-patches/diffs/xenomai/ipipe-core-$(ORIGKERNELRELEASE)-$(XENOMAI_ARCH)-[0-9].patch.gz | tail -1)
 
+# the Ubuntu kernel patch:  diff of vanilla and current Ubuntu kernel
+# http://kernel.ubuntu.com/git?p=ubuntu/ubuntu-precise.git
+# this should be placed in 
+# patch/linux-v$(ORIGKERNELRELEASE)-ubuntu-$(UBUNTU_PATCH_VERSION).patch
+UBUNTU_PATCH_VERSION = lts-3.5.0-23.35
+UBUNTU_PATCH=linux-v$(ORIGKERNELRELEASE)-ubuntu-$(UBUNTU_PATCH_VERSION).patch
+
 # Priority of this version (or urgency, as dchanges would call it)
 urgency := low
 

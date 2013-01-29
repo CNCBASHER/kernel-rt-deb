@@ -35,8 +35,8 @@ testdir:
 $(eval $(which_debdir))
 include $(DEBDIR)/ruleset/targets/common.mk
 
-real_stamp_clean: debian/stamp/.xeno_unpatch
-debian/stamp/pre-config-common: debian/stamp/.xeno_patch
+real_stamp_clean: debian/stamp/.unpatch
+debian/stamp/pre-config-common: debian/stamp/.patch
 debian/stamp/pre-config-indep:  debian/stamp/conf/kernel-conf
 configure: debian/stamp/conf/common
 debian/stamp/pre-build-common:  sanity_check debian/stamp/conf/vars

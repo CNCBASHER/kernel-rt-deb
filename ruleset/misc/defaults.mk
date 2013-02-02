@@ -51,7 +51,7 @@ ifeq ($(strip $(MODULE_LOC)),)
 MODULE_LOC =/usr/src/modules
 endif
 #
-DEBIAN_FILES = ChangeLog  Control  Control.bin86 config templates.in rules
+DEBIAN_FILES = Control  Control.bin86 config templates.in rules
 DEBIAN_DIRS  = Config docs examples ruleset scripts pkg po
 
 ifneq (,$(findstring Unknown,$(maintainer)))

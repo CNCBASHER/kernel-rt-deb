@@ -13,6 +13,9 @@ templates.in
 templates.l10n
 templates.master
 
+# local configuration
+/ruleset/misc/.kernel-pkg.conf
+
 # other things
 control.dist
 substvars

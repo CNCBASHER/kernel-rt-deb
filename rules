@@ -100,6 +100,8 @@ test:
 	echo FLAVOR_CONFIG_FILE:  $(FLAVOR_CONFIG_FILE)
 	echo XENOMAI_VERSION:  $(XENOMAI_VERSION)
 	echo XENOMAI_PATCH:  $(XENOMAI_PATCH)
+	echo debian: $(debian)
+	echo maintainer: $(maintainer)
 	echo $(DEB_BUILD_ARCH)
 	echo $(DEB_BUILD_GNU_CPU)
 	echo $(DEB_BUILD_GNU_TYPE)

@@ -2,7 +2,7 @@ Source: linux-source-3.5.7-xenomai-2.6.2.1
 Section: devel
 Priority: optional
 Maintainer:  John Morris <repos@zultron.com>
-Build-Depends: po-debconf, gettext, file
+Build-Depends: po-debconf, gettext, file, python
 Standards-Version: 3.5.9.0
 
 Package: linux-headers-3.5.7-xenomai-2.6.2.1

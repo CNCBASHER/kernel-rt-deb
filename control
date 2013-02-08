@@ -1,7 +1,7 @@
 Source: linux-source-3.5.7-xenomai-2.6.2.1
 Section: devel
 Priority: optional
-Maintainer:  Unknown Kernel Package Maintainer <unknown@unconfigured.in.etc.kernel-pkg.conf>
+Maintainer:  John Morris <repos@zultron.com>
 Build-Depends: po-debconf, gettext, file
 Standards-Version: 3.5.9.0
 
